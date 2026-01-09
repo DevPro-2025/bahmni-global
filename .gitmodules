@@ -1,3 +1,231 @@
 [submodule "bahmni-frontend"]
 	path = bahmni-frontend
 	url = https://github.com/Bahmni/bahmni-frontend.git
+[submodule "Bahmni-HnS"]
+	path = Bahmni-HnS
+	url = https://github.com/Bahmni/Bahmni-HnS.git
+[submodule "OpenElis"]
+	path = OpenElis
+	url = https://github.com/Bahmni/OpenElis.git
+[submodule "audit-log"]
+	path = audit-log
+	url = https://github.com/Bahmni/audit-log.git
+[submodule "bacteriology"]
+	path = bacteriology
+	url = https://github.com/Bahmni/bacteriology.git
+[submodule "bahmni-appointments-functional-tests"]
+	path = bahmni-appointments-functional-tests
+	url = https://github.com/Bahmni/bahmni-appointments-functional-tests.git
+[submodule "bahmni-aws"]
+	path = bahmni-aws
+	url = https://github.com/Bahmni/bahmni-aws.git
+[submodule "bahmni-commons-ng"]
+	path = bahmni-commons-ng
+	url = https://github.com/Bahmni/bahmni-commons-ng.git
+[submodule "bahmni-connect"]
+	path = bahmni-connect
+	url = https://github.com/Bahmni/bahmni-connect.git
+[submodule "bahmni-core"]
+	path = bahmni-core
+	url = https://github.com/Bahmni/bahmni-core.git
+[submodule "bahmni-decision-records"]
+	path = bahmni-decision-records
+	url = https://github.com/Bahmni/bahmni-decision-records.git
+[submodule "bahmni-diagrams"]
+	path = bahmni-diagrams
+	url = https://github.com/Bahmni/bahmni-diagrams.git
+[submodule "bahmni-docker"]
+	path = bahmni-docker
+	url = https://github.com/Bahmni/bahmni-docker.git
+[submodule "bahmni-e2e-common-flows"]
+	path = bahmni-e2e-common-flows
+	url = https://github.com/Bahmni/bahmni-e2e-common-flows.git
+[submodule "bahmni-e2e-tests"]
+	path = bahmni-e2e-tests
+	url = git@github.com:Bahmni/bahmni-e2e-tests.git
+[submodule "bahmni-endtb-batch"]
+	path = bahmni-endtb-batch
+	url = https://github.com/Bahmni/bahmni-endtb-batch.git
+[submodule "bahmni-feed-integration-example"]
+	path = bahmni-feed-integration-example
+	url = https://github.com/Bahmni/bahmni-feed-integration-example.git
+[submodule "bahmni-infra-utils"]
+	path = bahmni-infra-utils
+	url = https://github.com/Bahmni/bahmni-infra-utils.git
+[submodule "bahmni-infra"]
+	path = bahmni-infra
+	url = https://github.com/Bahmni/bahmni-infra.git
+[submodule "bahmni-insurance-connect"]
+	path = bahmni-insurance-connect
+	url = https://github.com/Bahmni/bahmni-insurance-connect.git
+[submodule "bahmni-java-utils"]
+	path = bahmni-java-utils
+	url = https://github.com/Bahmni/bahmni-java-utils.git
+[submodule "bahmni-lab-frontend"]
+	path = bahmni-lab-frontend
+	url = https://github.com/Bahmni/bahmni-lab-frontend.git
+[submodule "bahmni-mart-playbook"]
+	path = bahmni-mart-playbook
+	url = https://github.com/Bahmni/bahmni-mart-playbook.git
+[submodule "bahmni-mart"]
+	path = bahmni-mart
+	url = https://github.com/Bahmni/bahmni-mart.git
+[submodule "bahmni-offline-sync"]
+	path = bahmni-offline-sync
+	url = https://github.com/Bahmni/bahmni-offline-sync.git
+[submodule "bahmni-offline"]
+	path = bahmni-offline
+	url = https://github.com/Bahmni/bahmni-offline.git
+[submodule "bahmni-package"]
+	path = bahmni-package
+	url = https://github.com/Bahmni/bahmni-package.git
+[submodule "bahmni-playbooks"]
+	path = bahmni-playbooks
+	url = https://github.com/Bahmni/bahmni-playbooks.git
+[submodule "bahmni-reports"]
+	path = bahmni-reports
+	url = https://github.com/Bahmni/bahmni-reports.git
+[submodule "bahmni-scripts"]
+	path = bahmni-scripts
+	url = https://github.com/Bahmni/bahmni-scripts.git
+[submodule "bahmni-sms-plugins"]
+	path = bahmni-sms-plugins
+	url = https://github.com/Bahmni/bahmni-sms-plugins.git
+[submodule "bahmni-test-data-generator"]
+	path = bahmni-test-data-generator
+	url = https://github.com/Bahmni/bahmni-test-data-generator.git
+[submodule "bahmni-tw-aws"]
+	path = bahmni-tw-aws
+	url = https://github.com/Bahmni/bahmni-tw-aws.git
+[submodule "bahmni-tw-playbooks"]
+	path = bahmni-tw-playbooks
+	url = https://github.com/Bahmni/bahmni-tw-playbooks.git
+[submodule "bahmni-vagrant"]
+	path = bahmni-vagrant
+	url = https://github.com/Bahmni/bahmni-vagrant.git
+[submodule "bahmni_insurance_odoo"]
+	path = bahmni_insurance_odoo
+	url = https://github.com/Bahmni/bahmni_insurance_odoo.git
+[submodule "client_side_logging"]
+	path = client_side_logging
+	url = https://github.com/Bahmni/client_side_logging.git
+[submodule "clinic-config"]
+	path = clinic-config
+	url = https://github.com/Bahmni/clinic-config.git
+[submodule "crater-atomfeed"]
+	path = crater-atomfeed
+	url = https://github.com/Bahmni/crater-atomfeed.git
+[submodule "crater-docs"]
+	path = crater-docs
+	url = https://github.com/Bahmni/crater-docs.git
+[submodule "crater-extensions"]
+	path = crater-extensions
+	url = https://github.com/Bahmni/crater-extensions.git
+[submodule "crater"]
+	path = crater
+	url = https://github.com/Bahmni/crater.git
+[submodule "db-setup-helm-chart"]
+	path = db-setup-helm-chart
+	url = https://github.com/Bahmni/db-setup-helm-chart.git
+[submodule "default-config"]
+	path = default-config
+	url = https://github.com/Bahmni/default-config.git
+[submodule "emr-functional-tests"]
+	path = emr-functional-tests
+	url = https://github.com/Bahmni/emr-functional-tests.git
+[submodule "event-log-service"]
+	path = event-log-service
+	url = https://github.com/Bahmni/event-log-service.git
+[submodule "helm-charts"]
+	path = helm-charts
+	url = https://github.com/Bahmni/helm-charts.git
+[submodule "implementer-interface"]
+	path = implementer-interface
+	url = https://github.com/Bahmni/implementer-interface.git
+[submodule "letsencrypt"]
+	path = letsencrypt
+	url = https://github.com/Bahmni/letsencrypt.git
+[submodule "odoo-modules"]
+	path = odoo-modules
+	url = https://github.com/Bahmni/odoo-modules.git
+[submodule "openerp-atomfeed-service"]
+	path = openerp-atomfeed-service
+	url = https://github.com/Bahmni/openerp-atomfeed-service.git
+[submodule "openerp-modules"]
+	path = openerp-modules
+	url = https://github.com/Bahmni/openerp-modules.git
+[submodule "openmrs-distro-bahmni"]
+	path = openmrs-distro-bahmni
+	url = https://github.com/Bahmni/openmrs-distro-bahmni.git
+[submodule "openmrs-module-appointments-frontend"]
+	path = openmrs-module-appointments-frontend
+	url = https://github.com/Bahmni/openmrs-module-appointments-frontend.git
+[submodule "openmrs-module-appointments"]
+	path = openmrs-module-appointments
+	url = https://github.com/Bahmni/openmrs-module-appointments.git
+[submodule "openmrs-module-bahmni.ie.apps"]
+	path = openmrs-module-bahmni.ie.apps
+	url = https://github.com/Bahmni/openmrs-module-bahmni.ie.apps.git
+[submodule "openmrs-module-bahmniapps"]
+	path = openmrs-module-bahmniapps
+	url = https://github.com/Bahmni/openmrs-module-bahmniapps.git
+[submodule "openmrs-module-bahmnicommons"]
+	path = openmrs-module-bahmnicommons
+	url = https://github.com/Bahmni/openmrs-module-bahmnicommons.git
+[submodule "openmrs-module-bahmniendtb"]
+	path = openmrs-module-bahmniendtb
+	url = https://github.com/Bahmni/openmrs-module-bahmniendtb.git
+[submodule "openmrs-module-bedmanagement"]
+	path = openmrs-module-bedmanagement
+	url = https://github.com/Bahmni/openmrs-module-bedmanagement.git
+[submodule "openmrs-module-emrapi"]
+	path = openmrs-module-emrapi
+	url = https://github.com/Bahmni/openmrs-module-emrapi.git
+[submodule "openmrs-module-episodes"]
+	path = openmrs-module-episodes
+	url = https://github.com/Bahmni/openmrs-module-episodes.git
+[submodule "openmrs-module-fhir2Extension"]
+	path = openmrs-module-fhir2Extension
+	url = https://github.com/Bahmni/openmrs-module-fhir2Extension.git
+[submodule "openmrs-module-flowsheet"]
+	path = openmrs-module-flowsheet
+	url = https://github.com/Bahmni/openmrs-module-flowsheet.git
+[submodule "openmrs-module-idgen-webservices"]
+	path = openmrs-module-idgen-webservices
+	url = https://github.com/Bahmni/openmrs-module-idgen-webservices.git
+[submodule "openmrs-module-rulesengine"]
+	path = openmrs-module-rulesengine
+	url = https://github.com/Bahmni/openmrs-module-rulesengine.git
+[submodule "openmrs-module-teleconsultation"]
+	path = openmrs-module-teleconsultation
+	url = https://github.com/Bahmni/openmrs-module-teleconsultation.git
+[submodule "pacs-integration"]
+	path = pacs-integration
+	url = https://github.com/Bahmni/pacs-integration.git
+[submodule "pacsquery"]
+	path = pacsquery
+	url = https://github.com/Bahmni/pacsquery.git
+[submodule "patient-documents"]
+	path = patient-documents
+	url = https://github.com/Bahmni/patient-documents.git
+[submodule "performance-test"]
+	path = performance-test
+	url = https://github.com/Bahmni/performance-test.git
+[submodule "person-management-app"]
+	path = person-management-app
+	url = https://github.com/Bahmni/person-management-app.git
+[submodule "speech-assistant-frontend"]
+	path = speech-assistant-frontend
+	url = https://github.com/Bahmni/speech-assistant-frontend.git
+[submodule "speech-assistant-package"]
+	path = speech-assistant-package
+	url = https://github.com/Bahmni/speech-assistant-package.git
+[submodule "two-factor-auth"]
+	path = two-factor-auth
+	url = https://github.com/Bahmni/two-factor-auth.git
+[submodule "utilities"]
+	path = utilities
+	url = https://github.com/Bahmni/utilities.git
+[submodule "yemen-config"]
+	path = yemen-config
+	url = https://github.com/Bahmni/default-config.git
