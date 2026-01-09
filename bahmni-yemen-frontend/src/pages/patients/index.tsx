@@ -116,7 +116,7 @@ export default function PatientsPage() {
   return (
     <>
       <Head>
-        <title>{isRTL ? 'المرضى - باهمني اليمن' : 'Patients - Bahmni Yemen'}</title>
+        <title>{isRTL ? 'المرضى - النظام الصحي اليمني' : 'Patients - Yemen Health System'}</title>
       </Head>
 
       <div className="space-y-6">

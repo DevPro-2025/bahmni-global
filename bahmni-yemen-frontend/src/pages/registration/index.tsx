@@ -147,7 +147,7 @@ export default function RegistrationPage() {
   return (
     <>
       <Head>
-        <title>{isRTL ? 'تسجيل مريض جديد - باهمني اليمن' : 'New Patient Registration - Bahmni Yemen'}</title>
+        <title>{isRTL ? 'تسجيل مريض جديد - النظام الصحي اليمني' : 'New Patient Registration - Yemen Health System'}</title>
       </Head>
 
       <div className="max-w-4xl mx-auto">

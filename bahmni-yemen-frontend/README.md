@@ -1,8 +1,8 @@
-# Bahmni Yemen Frontend | واجهة باهمني اليمن
+# Yemen Health System Frontend | واجهة النظام الصحي اليمني
 
-واجهة أمامية حديثة لنظام باهمني مخصصة لليمن مع دعم اللغتين العربية والإنجليزية.
+واجهة أمامية حديثة للنظام الصحي اليمني مع دعم اللغتين العربية والإنجليزية.
 
-Modern frontend for Bahmni system customized for Yemen with Arabic and English language support.
+Modern frontend for Yemen Health System with Arabic and English language support.
 
 ## المميزات | Features
 

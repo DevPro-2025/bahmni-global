@@ -147,7 +147,7 @@ export default function AppointmentsPage() {
   return (
     <>
       <Head>
-        <title>{isRTL ? 'المواعيد - باهمني اليمن' : 'Appointments - Bahmni Yemen'}</title>
+        <title>{isRTL ? 'المواعيد - النظام الصحي اليمني' : 'Appointments - Yemen Health System'}</title>
       </Head>
 
       <div className="space-y-6">

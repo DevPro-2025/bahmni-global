@@ -39,7 +39,7 @@ export default function HomePage() {
 
   const t = {
     title: isRTL ? 'لوحة التحكم' : 'Dashboard',
-    welcome: isRTL ? 'مرحباً بك في نظام باهمني اليمن' : 'Welcome to Bahmni Yemen System',
+    welcome: isRTL ? 'مرحباً بك في النظام الصحي اليمني' : 'Welcome to Yemen Health System',
     quickActions: isRTL ? 'الإجراءات السريعة' : 'Quick Actions',
     statistics: isRTL ? 'الإحصائيات' : 'Statistics',
     totalPatients: isRTL ? 'إجمالي المرضى' : 'Total Patients',
@@ -53,7 +53,7 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>{isRTL ? 'لوحة التحكم - باهمني اليمن' : 'Dashboard - Bahmni Yemen'}</title>
+        <title>{isRTL ? 'لوحة التحكم - النظام الصحي اليمني' : 'Dashboard - Yemen Health System'}</title>
       </Head>
 
       <div className="space-y-6">

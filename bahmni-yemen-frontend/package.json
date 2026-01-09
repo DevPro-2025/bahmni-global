@@ -2,7 +2,7 @@
   "name": "bahmni-yemen-frontend",
   "version": "1.0.0",
   "private": true,
-  "description": "Modern frontend for Bahmni Yemen with Arabic and English support",
+  "description": "Modern frontend for Yemen Health System with Arabic and English support",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

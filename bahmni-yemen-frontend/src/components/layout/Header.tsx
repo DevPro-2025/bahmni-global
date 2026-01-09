@@ -32,7 +32,7 @@ export function Header({ onMenuClick, locale }: HeaderProps) {
             <Menu size={24} />
           </button>
           <h1 className="text-xl font-semibold text-slate-800 hidden sm:block">
-            {isRTL ? 'نظام باهمني اليمن' : 'Bahmni Yemen System'}
+            {isRTL ? 'النظام الصحي اليمني' : 'Yemen Health System'}
           </h1>
         </div>
 
