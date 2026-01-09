@@ -1,0 +1,230 @@
+/**
+ * Yemen Health System - Responsive Styles
+ */
+
+/* Mobile (< 640px) */
+@media (max-width: 639px) {
+  .side-bar,
+  .sidebar {
+    position: fixed !important;
+    left: -100% !important;
+    top: 0 !important;
+    height: 100vh !important;
+    z-index: var(--yemen-z-fixed) !important;
+    transition: left var(--yemen-transition-normal) !important;
+  }
+
+  .side-bar.open,
+  .sidebar.open {
+    left: 0 !important;
+  }
+
+  html[dir="rtl"] .side-bar,
+  html[dir="rtl"] .sidebar {
+    left: auto !important;
+    right: -100% !important;
+  }
+
+  html[dir="rtl"] .side-bar.open,
+  html[dir="rtl"] .sidebar.open {
+    right: 0 !important;
+  }
+
+  .main-content,
+  .content-area {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: var(--yemen-space-4) !important;
+  }
+
+  .card,
+  .panel {
+    padding: var(--yemen-space-4) !important;
+    margin-bottom: var(--yemen-space-4) !important;
+  }
+
+  .table-responsive {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  table {
+    min-width: 600px !important;
+  }
+
+  .btn,
+  button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .modal,
+  .dialog {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    height: 100vh !important;
+  }
+
+  h1 { font-size: var(--yemen-text-2xl) !important; }
+  h2 { font-size: var(--yemen-text-xl) !important; }
+  h3 { font-size: var(--yemen-text-lg) !important; }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .ward-summary {
+    grid-template-columns: 1fr !important;
+  }
+
+  .bed-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* Tablet (640px - 1024px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .side-bar,
+  .sidebar {
+    width: var(--yemen-sidebar-collapsed-width) !important;
+  }
+
+  .sidebar .nav-text {
+    display: none !important;
+  }
+
+  .sidebar .nav-link {
+    justify-content: center !important;
+    padding: var(--yemen-space-3) !important;
+  }
+
+  .main-content,
+  .content-area {
+    margin-left: var(--yemen-sidebar-collapsed-width) !important;
+  }
+
+  html[dir="rtl"] .main-content,
+  html[dir="rtl"] .content-area {
+    margin-left: 0 !important;
+    margin-right: var(--yemen-sidebar-collapsed-width) !important;
+  }
+
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .ward-summary {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .bed-grid {
+    grid-template-columns: repeat(6, 1fr) !important;
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .main-content,
+  .content-area {
+    margin-left: var(--yemen-sidebar-width) !important;
+    padding: var(--yemen-space-6) !important;
+  }
+
+  html[dir="rtl"] .main-content,
+  html[dir="rtl"] .content-area {
+    margin-left: 0 !important;
+    margin-right: var(--yemen-sidebar-width) !important;
+  }
+
+  .ward-summary {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .bed-grid {
+    grid-template-columns: repeat(8, 1fr) !important;
+  }
+}
+
+/* Large Desktop (1280px+) */
+@media (min-width: 1280px) {
+  .main-content,
+  .content-area {
+    padding: var(--yemen-space-8) !important;
+    max-width: var(--yemen-content-max-width) !important;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  .ward-summary {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  .bed-grid {
+    grid-template-columns: repeat(10, 1fr) !important;
+  }
+}
+
+/* Print */
+@media print {
+  .side-bar,
+  .sidebar,
+  .header,
+  .navbar {
+    display: none !important;
+  }
+
+  .main-content,
+  .content-area {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  body,
+  .card,
+  .panel {
+    background-color: white !important;
+  }
+
+  * {
+    box-shadow: none !important;
+  }
+
+  .btn,
+  button,
+  .actions {
+    display: none !important;
+  }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  button,
+  .nav-link,
+  .clickable {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+}
+
+/* High contrast */
+@media (prefers-contrast: high) {
+  .btn,
+  button,
+  input,
+  select,
+  textarea {
+    border-width: 2px !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+  }
+}

@@ -226,6 +226,3 @@
 [submodule "utilities"]
 	path = utilities
 	url = https://github.com/Bahmni/utilities.git
-[submodule "yemen-config"]
-	path = yemen-config
-	url = https://github.com/Bahmni/default-config.git

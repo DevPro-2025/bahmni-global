@@ -1,0 +1,287 @@
+{
+  "app": {
+    "name": "النظام الصحي اليمني",
+    "shortName": "اليمن الصحي",
+    "description": "نظام إدارة معلومات المستشفيات الحديث"
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "add": "إضافة",
+    "search": "بحث",
+    "filter": "تصفية",
+    "print": "طباعة",
+    "export": "تصدير",
+    "close": "إغلاق",
+    "confirm": "تأكيد",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "submit": "إرسال",
+    "loading": "جاري التحميل...",
+    "noData": "لا توجد بيانات",
+    "required": "مطلوب",
+    "yes": "نعم",
+    "no": "لا",
+    "all": "الكل",
+    "actions": "إجراءات",
+    "status": "الحالة",
+    "date": "التاريخ",
+    "time": "الوقت",
+    "total": "المجموع",
+    "active": "نشط",
+    "pending": "معلق",
+    "completed": "مكتمل",
+    "cancelled": "ملغي",
+    "success": "نجاح",
+    "error": "خطأ",
+    "warning": "تحذير"
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "dashboard": "لوحة التحكم",
+    "patients": "المرضى",
+    "registration": "التسجيل",
+    "clinical": "السجل السريري",
+    "appointments": "المواعيد",
+    "laboratory": "المختبر",
+    "pharmacy": "الصيدلية",
+    "billing": "الفوترة",
+    "reports": "التقارير",
+    "admin": "الإدارة",
+    "settings": "الإعدادات",
+    "adt": "الدخول/الخروج",
+    "bedManagement": "إدارة الأسرة",
+    "operatingTheatre": "غرفة العمليات",
+    "radiology": "الأشعة",
+    "programs": "البرامج",
+    "documents": "المستندات",
+    "analytics": "التحليلات"
+  },
+  "patient": {
+    "patient": "مريض",
+    "patients": "المرضى",
+    "patientId": "رقم المريض",
+    "newPatient": "مريض جديد",
+    "searchPatient": "البحث عن مريض",
+    "registerPatient": "تسجيل مريض جديد",
+    "name": {
+      "title": "اسم المريض",
+      "givenName": "الاسم الأول",
+      "middleName": "اسم الأب",
+      "familyName": "اسم العائلة"
+    },
+    "gender": {
+      "title": "الجنس",
+      "male": "ذكر",
+      "female": "أنثى",
+      "other": "آخر"
+    },
+    "age": {
+      "title": "العمر",
+      "years": "سنوات",
+      "months": "أشهر",
+      "days": "أيام",
+      "dateOfBirth": "تاريخ الميلاد",
+      "estimated": "تقديري"
+    },
+    "address": {
+      "title": "معلومات العنوان",
+      "address1": "العنوان 1",
+      "address2": "العنوان 2",
+      "cityVillage": "المدينة/القرية",
+      "countyDistrict": "المديرية",
+      "stateProvince": "المحافظة",
+      "country": "الدولة",
+      "postalCode": "الرمز البريدي"
+    },
+    "additionalInfo": "معلومات إضافية",
+    "deathInfo": {
+      "title": "معلومات الوفاة",
+      "isDead": "متوفى",
+      "deathDate": "تاريخ الوفاة"
+    },
+    "photo": {
+      "title": "صورة المريض",
+      "capture": "التقاط صورة"
+    }
+  },
+  "clinical": {
+    "title": "السجل السريري",
+    "vitals": {
+      "title": "العلامات الحيوية",
+      "temperature": "الحرارة",
+      "pulse": "النبض",
+      "bloodPressure": "ضغط الدم",
+      "systolic": "الانقباضي",
+      "diastolic": "الانبساطي",
+      "respiratoryRate": "معدل التنفس",
+      "weight": "الوزن",
+      "height": "الطول",
+      "spo2": "تشبع الأكسجين"
+    },
+    "complaint": {
+      "title": "الشكوى الرئيسية",
+      "chiefComplaint": "الشكوى الرئيسية",
+      "historyOfPresentIllness": "تاريخ المرض الحالي"
+    },
+    "diagnosis": {
+      "title": "التشخيص",
+      "addDiagnosis": "إضافة تشخيص",
+      "primary": "أساسي",
+      "secondary": "ثانوي",
+      "provisional": "مبدئي",
+      "confirmed": "مؤكد"
+    }
+  },
+  "appointments": {
+    "title": "المواعيد",
+    "newAppointment": "موعد جديد",
+    "today": "اليوم",
+    "upcoming": "القادمة",
+    "status": {
+      "scheduled": "مجدول",
+      "checkedIn": "حاضر",
+      "completed": "مكتمل",
+      "cancelled": "ملغي"
+    }
+  },
+  "laboratory": {
+    "title": "المختبر",
+    "labOrders": "طلبات المختبر",
+    "labResults": "نتائج المختبر",
+    "urgency": {
+      "stat": "عاجل",
+      "routine": "عادي"
+    },
+    "status": {
+      "pending": "معلق",
+      "collected": "تم جمع العينة",
+      "inProgress": "قيد التحليل",
+      "completed": "مكتمل"
+    }
+  },
+  "pharmacy": {
+    "title": "الصيدلية",
+    "prescriptions": "الوصفات الطبية",
+    "dispense": "صرف",
+    "drug": "دواء",
+    "dosage": "الجرعة",
+    "frequency": "التكرار",
+    "duration": "المدة",
+    "quantity": "الكمية",
+    "stock": {
+      "inStock": "متوفر",
+      "outOfStock": "غير متوفر",
+      "lowStock": "مخزون منخفض"
+    }
+  },
+  "billing": {
+    "title": "الفوترة",
+    "bill": "فاتورة",
+    "newBill": "فاتورة جديدة",
+    "payment": "دفعة",
+    "subtotal": "المجموع الفرعي",
+    "discount": "خصم",
+    "total": "الإجمالي",
+    "paid": "مدفوع",
+    "unpaid": "غير مدفوع",
+    "paymentMethod": {
+      "cash": "نقداً",
+      "card": "بطاقة",
+      "insurance": "تأمين"
+    },
+    "currency": "ر.ي"
+  },
+  "adt": {
+    "title": "الدخول والخروج والنقل",
+    "admission": "دخول",
+    "discharge": "خروج",
+    "transfer": "نقل",
+    "ward": "جناح",
+    "bed": "سرير",
+    "occupancy": "الإشغال",
+    "available": "متاح",
+    "occupied": "مشغول",
+    "reserved": "محجوز"
+  },
+  "radiology": {
+    "title": "الأشعة",
+    "modality": {
+      "xray": "أشعة سينية",
+      "ct": "أشعة مقطعية",
+      "mri": "رنين مغناطيسي",
+      "ultrasound": "موجات فوق صوتية"
+    },
+    "report": "التقرير"
+  },
+  "reports": {
+    "title": "التقارير",
+    "generate": "إنشاء",
+    "download": "تحميل",
+    "category": {
+      "patient": "تقارير المرضى",
+      "clinical": "تقارير سريرية",
+      "laboratory": "تقارير المختبر",
+      "pharmacy": "تقارير الصيدلية",
+      "financial": "تقارير مالية"
+    }
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "language": {
+      "title": "اللغة",
+      "arabic": "العربية",
+      "english": "English"
+    },
+    "theme": {
+      "title": "المظهر",
+      "light": "فاتح",
+      "dark": "داكن"
+    }
+  },
+  "yemen": {
+    "governorates": {
+      "sanaa": "صنعاء",
+      "aden": "عدن",
+      "taiz": "تعز",
+      "hodeidah": "الحديدة",
+      "ibb": "إب",
+      "dhamar": "ذمار",
+      "hajjah": "حجة",
+      "amran": "عمران",
+      "saada": "صعدة",
+      "marib": "مأرب",
+      "alBayda": "البيضاء",
+      "lahj": "لحج",
+      "abyan": "أبين",
+      "shabwah": "شبوة",
+      "hadramaut": "حضرموت",
+      "alMahrah": "المهرة",
+      "alJawf": "الجوف",
+      "alMahwit": "المحويت",
+      "raymah": "ريمة",
+      "socotra": "سقطرى",
+      "amanat_al_asimah": "أمانة العاصمة"
+    },
+    "currency": {
+      "code": "YER",
+      "name": "ريال يمني",
+      "symbol": "ر.ي"
+    }
+  },
+  "errors": {
+    "required": "هذا الحقل مطلوب",
+    "invalidEmail": "البريد الإلكتروني غير صالح",
+    "serverError": "حدث خطأ في الخادم",
+    "networkError": "خطأ في الاتصال بالشبكة",
+    "accessDenied": "الوصول مرفوض"
+  },
+  "messages": {
+    "saveSuccess": "تم الحفظ بنجاح",
+    "deleteSuccess": "تم الحذف بنجاح",
+    "confirmDelete": "هل أنت متأكد من الحذف؟"
+  }
+}

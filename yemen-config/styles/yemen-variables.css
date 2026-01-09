@@ -1,0 +1,161 @@
+/**
+ * Yemen Health System - CSS Variables
+ * 
+ * Design tokens for the Yemen Health System theme overlay.
+ * These variables override Bahmni's default styling.
+ */
+
+:root {
+  /* ============================================
+   * BRAND COLORS - Yemen Health System
+   * ============================================ */
+  
+  /* Primary Blue - Main brand color */
+  --yemen-primary-50: #eff6ff;
+  --yemen-primary-100: #dbeafe;
+  --yemen-primary-200: #bfdbfe;
+  --yemen-primary-300: #93c5fd;
+  --yemen-primary-400: #60a5fa;
+  --yemen-primary-500: #3b82f6;
+  --yemen-primary-600: #2563eb;
+  --yemen-primary-700: #1d4ed8;
+  --yemen-primary-800: #1e40af;
+  --yemen-primary-900: #1e3a8a;
+  
+  /* Secondary - Accent color */
+  --yemen-secondary-50: #f0fdf4;
+  --yemen-secondary-100: #dcfce7;
+  --yemen-secondary-200: #bbf7d0;
+  --yemen-secondary-300: #86efac;
+  --yemen-secondary-400: #4ade80;
+  --yemen-secondary-500: #22c55e;
+  --yemen-secondary-600: #16a34a;
+  --yemen-secondary-700: #15803d;
+  --yemen-secondary-800: #166534;
+  --yemen-secondary-900: #14532d;
+  
+  /* Neutral - Gray scale */
+  --yemen-neutral-50: #f9fafb;
+  --yemen-neutral-100: #f3f4f6;
+  --yemen-neutral-200: #e5e7eb;
+  --yemen-neutral-300: #d1d5db;
+  --yemen-neutral-400: #9ca3af;
+  --yemen-neutral-500: #6b7280;
+  --yemen-neutral-600: #4b5563;
+  --yemen-neutral-700: #374151;
+  --yemen-neutral-800: #1f2937;
+  --yemen-neutral-900: #111827;
+  
+  /* Semantic Colors */
+  --yemen-success: #22c55e;
+  --yemen-success-light: #dcfce7;
+  --yemen-warning: #f59e0b;
+  --yemen-warning-light: #fef3c7;
+  --yemen-error: #ef4444;
+  --yemen-error-light: #fee2e2;
+  --yemen-info: #3b82f6;
+  --yemen-info-light: #dbeafe;
+  
+  /* ============================================
+   * TYPOGRAPHY
+   * ============================================ */
+  
+  /* Font Families */
+  --yemen-font-arabic: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+  --yemen-font-english: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+  --yemen-font-mono: 'JetBrains Mono', 'Consolas', monospace;
+  
+  /* Font Sizes */
+  --yemen-text-xs: 0.75rem;
+  --yemen-text-sm: 0.875rem;
+  --yemen-text-base: 1rem;
+  --yemen-text-lg: 1.125rem;
+  --yemen-text-xl: 1.25rem;
+  --yemen-text-2xl: 1.5rem;
+  --yemen-text-3xl: 1.875rem;
+  --yemen-text-4xl: 2.25rem;
+  
+  /* Font Weights */
+  --yemen-font-light: 300;
+  --yemen-font-normal: 400;
+  --yemen-font-medium: 500;
+  --yemen-font-semibold: 600;
+  --yemen-font-bold: 700;
+  
+  /* Line Heights */
+  --yemen-leading-tight: 1.25;
+  --yemen-leading-snug: 1.375;
+  --yemen-leading-normal: 1.5;
+  --yemen-leading-relaxed: 1.625;
+  
+  /* ============================================
+   * SPACING
+   * ============================================ */
+  
+  --yemen-space-0: 0;
+  --yemen-space-1: 0.25rem;
+  --yemen-space-2: 0.5rem;
+  --yemen-space-3: 0.75rem;
+  --yemen-space-4: 1rem;
+  --yemen-space-5: 1.25rem;
+  --yemen-space-6: 1.5rem;
+  --yemen-space-8: 2rem;
+  --yemen-space-10: 2.5rem;
+  --yemen-space-12: 3rem;
+  --yemen-space-16: 4rem;
+  
+  /* ============================================
+   * BORDERS & RADIUS
+   * ============================================ */
+  
+  --yemen-border-width: 1px;
+  --yemen-border-color: var(--yemen-neutral-200);
+  
+  --yemen-radius-none: 0;
+  --yemen-radius-sm: 0.25rem;
+  --yemen-radius-md: 0.375rem;
+  --yemen-radius-lg: 0.5rem;
+  --yemen-radius-xl: 0.75rem;
+  --yemen-radius-2xl: 1rem;
+  --yemen-radius-full: 9999px;
+  
+  /* ============================================
+   * SHADOWS
+   * ============================================ */
+  
+  --yemen-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --yemen-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --yemen-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --yemen-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --yemen-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* ============================================
+   * TRANSITIONS
+   * ============================================ */
+  
+  --yemen-transition-fast: 150ms ease;
+  --yemen-transition-normal: 200ms ease;
+  --yemen-transition-slow: 300ms ease;
+  
+  /* ============================================
+   * Z-INDEX SCALE
+   * ============================================ */
+  
+  --yemen-z-base: 0;
+  --yemen-z-dropdown: 1000;
+  --yemen-z-sticky: 1020;
+  --yemen-z-fixed: 1030;
+  --yemen-z-modal-backdrop: 1040;
+  --yemen-z-modal: 1050;
+  --yemen-z-popover: 1060;
+  --yemen-z-tooltip: 1070;
+  
+  /* ============================================
+   * LAYOUT
+   * ============================================ */
+  
+  --yemen-sidebar-width: 250px;
+  --yemen-sidebar-collapsed-width: 64px;
+  --yemen-header-height: 64px;
+  --yemen-content-max-width: 1400px;
+}

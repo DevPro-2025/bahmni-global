@@ -1,0 +1,287 @@
+{
+  "app": {
+    "name": "Yemen Health System",
+    "shortName": "Yemen Health",
+    "description": "Modern Hospital Information Management System"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search",
+    "filter": "Filter",
+    "print": "Print",
+    "export": "Export",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "loading": "Loading...",
+    "noData": "No data available",
+    "required": "Required",
+    "yes": "Yes",
+    "no": "No",
+    "all": "All",
+    "actions": "Actions",
+    "status": "Status",
+    "date": "Date",
+    "time": "Time",
+    "total": "Total",
+    "active": "Active",
+    "pending": "Pending",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning"
+  },
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "patients": "Patients",
+    "registration": "Registration",
+    "clinical": "Clinical",
+    "appointments": "Appointments",
+    "laboratory": "Laboratory",
+    "pharmacy": "Pharmacy",
+    "billing": "Billing",
+    "reports": "Reports",
+    "admin": "Admin",
+    "settings": "Settings",
+    "adt": "ADT",
+    "bedManagement": "Bed Management",
+    "operatingTheatre": "Operating Theatre",
+    "radiology": "Radiology",
+    "programs": "Programs",
+    "documents": "Documents",
+    "analytics": "Analytics"
+  },
+  "patient": {
+    "patient": "Patient",
+    "patients": "Patients",
+    "patientId": "Patient ID",
+    "newPatient": "New Patient",
+    "searchPatient": "Search Patient",
+    "registerPatient": "Register New Patient",
+    "name": {
+      "title": "Patient Name",
+      "givenName": "First Name",
+      "middleName": "Middle Name",
+      "familyName": "Family Name"
+    },
+    "gender": {
+      "title": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other"
+    },
+    "age": {
+      "title": "Age",
+      "years": "Years",
+      "months": "Months",
+      "days": "Days",
+      "dateOfBirth": "Date of Birth",
+      "estimated": "Estimated"
+    },
+    "address": {
+      "title": "Address Information",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "cityVillage": "City/Village",
+      "countyDistrict": "District",
+      "stateProvince": "Governorate",
+      "country": "Country",
+      "postalCode": "Postal Code"
+    },
+    "additionalInfo": "Additional Information",
+    "deathInfo": {
+      "title": "Death Information",
+      "isDead": "Deceased",
+      "deathDate": "Date of Death"
+    },
+    "photo": {
+      "title": "Patient Photo",
+      "capture": "Capture Photo"
+    }
+  },
+  "clinical": {
+    "title": "Clinical Record",
+    "vitals": {
+      "title": "Vitals",
+      "temperature": "Temperature",
+      "pulse": "Pulse",
+      "bloodPressure": "Blood Pressure",
+      "systolic": "Systolic",
+      "diastolic": "Diastolic",
+      "respiratoryRate": "Respiratory Rate",
+      "weight": "Weight",
+      "height": "Height",
+      "spo2": "SpO2"
+    },
+    "complaint": {
+      "title": "Chief Complaint",
+      "chiefComplaint": "Chief Complaint",
+      "historyOfPresentIllness": "History of Present Illness"
+    },
+    "diagnosis": {
+      "title": "Diagnosis",
+      "addDiagnosis": "Add Diagnosis",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "provisional": "Provisional",
+      "confirmed": "Confirmed"
+    }
+  },
+  "appointments": {
+    "title": "Appointments",
+    "newAppointment": "New Appointment",
+    "today": "Today",
+    "upcoming": "Upcoming",
+    "status": {
+      "scheduled": "Scheduled",
+      "checkedIn": "Checked In",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
+  },
+  "laboratory": {
+    "title": "Laboratory",
+    "labOrders": "Lab Orders",
+    "labResults": "Lab Results",
+    "urgency": {
+      "stat": "STAT",
+      "routine": "Routine"
+    },
+    "status": {
+      "pending": "Pending",
+      "collected": "Sample Collected",
+      "inProgress": "In Progress",
+      "completed": "Completed"
+    }
+  },
+  "pharmacy": {
+    "title": "Pharmacy",
+    "prescriptions": "Prescriptions",
+    "dispense": "Dispense",
+    "drug": "Drug",
+    "dosage": "Dosage",
+    "frequency": "Frequency",
+    "duration": "Duration",
+    "quantity": "Quantity",
+    "stock": {
+      "inStock": "In Stock",
+      "outOfStock": "Out of Stock",
+      "lowStock": "Low Stock"
+    }
+  },
+  "billing": {
+    "title": "Billing",
+    "bill": "Bill",
+    "newBill": "New Bill",
+    "payment": "Payment",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "total": "Total",
+    "paid": "Paid",
+    "unpaid": "Unpaid",
+    "paymentMethod": {
+      "cash": "Cash",
+      "card": "Card",
+      "insurance": "Insurance"
+    },
+    "currency": "YER"
+  },
+  "adt": {
+    "title": "Admission, Discharge & Transfer",
+    "admission": "Admission",
+    "discharge": "Discharge",
+    "transfer": "Transfer",
+    "ward": "Ward",
+    "bed": "Bed",
+    "occupancy": "Occupancy",
+    "available": "Available",
+    "occupied": "Occupied",
+    "reserved": "Reserved"
+  },
+  "radiology": {
+    "title": "Radiology",
+    "modality": {
+      "xray": "X-Ray",
+      "ct": "CT Scan",
+      "mri": "MRI",
+      "ultrasound": "Ultrasound"
+    },
+    "report": "Report"
+  },
+  "reports": {
+    "title": "Reports",
+    "generate": "Generate",
+    "download": "Download",
+    "category": {
+      "patient": "Patient Reports",
+      "clinical": "Clinical Reports",
+      "laboratory": "Laboratory Reports",
+      "pharmacy": "Pharmacy Reports",
+      "financial": "Financial Reports"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": {
+      "title": "Language",
+      "arabic": "Arabic",
+      "english": "English"
+    },
+    "theme": {
+      "title": "Theme",
+      "light": "Light",
+      "dark": "Dark"
+    }
+  },
+  "yemen": {
+    "governorates": {
+      "sanaa": "Sana'a",
+      "aden": "Aden",
+      "taiz": "Taiz",
+      "hodeidah": "Hodeidah",
+      "ibb": "Ibb",
+      "dhamar": "Dhamar",
+      "hajjah": "Hajjah",
+      "amran": "Amran",
+      "saada": "Sa'ada",
+      "marib": "Marib",
+      "alBayda": "Al Bayda",
+      "lahj": "Lahj",
+      "abyan": "Abyan",
+      "shabwah": "Shabwah",
+      "hadramaut": "Hadramaut",
+      "alMahrah": "Al Mahrah",
+      "alJawf": "Al Jawf",
+      "alMahwit": "Al Mahwit",
+      "raymah": "Raymah",
+      "socotra": "Socotra",
+      "amanat_al_asimah": "Amanat Al-Asimah"
+    },
+    "currency": {
+      "code": "YER",
+      "name": "Yemeni Rial",
+      "symbol": "YER"
+    }
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalidEmail": "Invalid email address",
+    "serverError": "Server error occurred",
+    "networkError": "Network connection error",
+    "accessDenied": "Access denied"
+  },
+  "messages": {
+    "saveSuccess": "Saved successfully",
+    "deleteSuccess": "Deleted successfully",
+    "confirmDelete": "Are you sure you want to delete?"
+  }
+}
