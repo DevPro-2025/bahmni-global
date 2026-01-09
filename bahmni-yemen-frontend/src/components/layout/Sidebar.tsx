@@ -16,6 +16,12 @@ import {
   Settings,
   Menu,
   X,
+  BedDouble,
+  ArrowRightLeft,
+  Scissors,
+  FileText,
+  Shield,
+  Layers,
 } from 'lucide-react';
 
 interface NavItem {
@@ -31,10 +37,16 @@ const navItems: NavItem[] = [
   { href: '/registration', labelAr: 'التسجيل', labelEn: 'Registration', icon: <UserPlus size={20} /> },
   { href: '/clinical', labelAr: 'السجل السريري', labelEn: 'Clinical', icon: <Stethoscope size={20} /> },
   { href: '/appointments', labelAr: 'المواعيد', labelEn: 'Appointments', icon: <Calendar size={20} /> },
+  { href: '/adt', labelAr: 'الدخول/الخروج', labelEn: 'ADT', icon: <ArrowRightLeft size={20} /> },
+  { href: '/bedmanagement', labelAr: 'إدارة الأسرة', labelEn: 'Bed Management', icon: <BedDouble size={20} /> },
+  { href: '/ot', labelAr: 'غرفة العمليات', labelEn: 'OT', icon: <Scissors size={20} /> },
   { href: '/laboratory', labelAr: 'المختبر', labelEn: 'Laboratory', icon: <FlaskConical size={20} /> },
   { href: '/pharmacy', labelAr: 'الصيدلية', labelEn: 'Pharmacy', icon: <Pill size={20} /> },
   { href: '/billing', labelAr: 'الفوترة', labelEn: 'Billing', icon: <Receipt size={20} /> },
+  { href: '/documents', labelAr: 'المستندات', labelEn: 'Documents', icon: <FileText size={20} /> },
   { href: '/reports', labelAr: 'التقارير', labelEn: 'Reports', icon: <BarChart3 size={20} /> },
+  { href: '/programs', labelAr: 'البرامج', labelEn: 'Programs', icon: <Layers size={20} /> },
+  { href: '/admin', labelAr: 'الإدارة', labelEn: 'Admin', icon: <Shield size={20} /> },
 ];
 
 interface SidebarProps {

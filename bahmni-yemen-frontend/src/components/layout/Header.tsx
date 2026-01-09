@@ -8,15 +8,20 @@ import { Menu, Bell, User, Globe, LogOut } from 'lucide-react';
 interface HeaderProps {
   onMenuClick: () => void;
   locale: string;
+  onLocaleChange?: (locale: 'ar' | 'en') => void;
 }
 
-export function Header({ onMenuClick, locale }: HeaderProps) {
+export function Header({ onMenuClick, locale, onLocaleChange }: HeaderProps) {
   const router = useRouter();
   const isRTL = locale === 'ar';
 
   const toggleLocale = () => {
     const newLocale = locale === 'ar' ? 'en' : 'ar';
-    router.push(router.pathname, router.asPath, { locale: newLocale });
+    if (onLocaleChange) {
+      onLocaleChange(newLocale);
+    } else {
+      router.push(router.pathname, router.asPath, { locale: newLocale });
+    }
   };
 
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-export type BadgeVariant = 'default' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
+export type BadgeVariant = 'default' | 'secondary' | 'success' | 'warning' | 'error' | 'info' | 'danger' | 'primary';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: BadgeVariant;
@@ -17,6 +17,8 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
       warning: 'bg-yellow-100 text-yellow-800',
       error: 'bg-red-100 text-red-800',
       info: 'bg-blue-100 text-blue-800',
+      danger: 'bg-red-100 text-red-800',
+      primary: 'bg-primary-100 text-primary-800',
     };
 
     return (
