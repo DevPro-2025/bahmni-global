@@ -2,73 +2,87 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Users, Search, Plus, Eye, Edit, Phone, Calendar } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Users, Search, Plus, Eye, Edit, Calendar, UserPlus } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
 import { Badge } from '@/components/ui/Badge';
 
-// Sample patient data - would come from API in real app
+// Sample patient data matching OpenMRS patient structure
 const samplePatients = [
   {
-    id: 'P001',
-    firstName: 'أحمد',
-    lastName: 'محمد',
-    firstNameEn: 'Ahmed',
-    lastNameEn: 'Mohammed',
-    gender: 'male',
+    uuid: 'patient-001-uuid',
+    identifier: 'YEM-001',
+    givenName: 'أحمد',
+    middleName: 'عبدالله',
+    familyName: 'محمد',
+    gender: 'M',
     age: 35,
-    phone: '777123456',
-    lastVisit: '2024-01-05',
-    status: 'active',
+    birthDate: '1989-03-15',
+    cityVillage: 'صنعاء',
+    stateProvince: 'sanaa',
+    dateCreated: '2024-01-05',
+    extraIdentifiers: {},
+    customAttribute: {},
   },
   {
-    id: 'P002',
-    firstName: 'فاطمة',
-    lastName: 'علي',
-    firstNameEn: 'Fatima',
-    lastNameEn: 'Ali',
-    gender: 'female',
+    uuid: 'patient-002-uuid',
+    identifier: 'YEM-002',
+    givenName: 'فاطمة',
+    middleName: 'علي',
+    familyName: 'أحمد',
+    gender: 'F',
     age: 28,
-    phone: '771234567',
-    lastVisit: '2024-01-08',
-    status: 'active',
+    birthDate: '1996-07-20',
+    cityVillage: 'عدن',
+    stateProvince: 'aden',
+    dateCreated: '2024-01-08',
+    extraIdentifiers: {},
+    customAttribute: {},
   },
   {
-    id: 'P003',
-    firstName: 'محمد',
-    lastName: 'صالح',
-    firstNameEn: 'Mohammed',
-    lastNameEn: 'Saleh',
-    gender: 'male',
+    uuid: 'patient-003-uuid',
+    identifier: 'YEM-003',
+    givenName: 'محمد',
+    middleName: 'صالح',
+    familyName: 'العمري',
+    gender: 'M',
     age: 45,
-    phone: '770987654',
-    lastVisit: '2024-01-03',
-    status: 'active',
+    birthDate: '1979-11-10',
+    cityVillage: 'تعز',
+    stateProvince: 'taiz',
+    dateCreated: '2024-01-03',
+    extraIdentifiers: {},
+    customAttribute: {},
   },
   {
-    id: 'P004',
-    firstName: 'سارة',
-    lastName: 'أحمد',
-    firstNameEn: 'Sara',
-    lastNameEn: 'Ahmed',
-    gender: 'female',
+    uuid: 'patient-004-uuid',
+    identifier: 'YEM-004',
+    givenName: 'سارة',
+    middleName: 'محمد',
+    familyName: 'الحسني',
+    gender: 'F',
     age: 22,
-    phone: '773456789',
-    lastVisit: '2024-01-07',
-    status: 'inactive',
+    birthDate: '2002-05-25',
+    cityVillage: 'إب',
+    stateProvince: 'ibb',
+    dateCreated: '2024-01-07',
+    extraIdentifiers: {},
+    customAttribute: {},
   },
   {
-    id: 'P005',
-    firstName: 'عبدالله',
-    lastName: 'العمري',
-    firstNameEn: 'Abdullah',
-    lastNameEn: 'Al-Omari',
-    gender: 'male',
+    uuid: 'patient-005-uuid',
+    identifier: 'YEM-005',
+    givenName: 'عبدالله',
+    middleName: 'أحمد',
+    familyName: 'السعيدي',
+    gender: 'M',
     age: 52,
-    phone: '774567890',
-    lastVisit: '2024-01-06',
-    status: 'active',
+    birthDate: '1972-09-08',
+    cityVillage: 'الحديدة',
+    stateProvince: 'hodeidah',
+    dateCreated: '2024-01-06',
+    extraIdentifiers: {},
+    customAttribute: {},
   },
 ];
 
@@ -76,42 +90,91 @@ export default function PatientsPage() {
   const router = useRouter();
   const locale = router.locale || 'ar';
   const isRTL = locale === 'ar';
-  const [searchQuery, setSearchQuery] = useState('');
+  
+  // Search parameters matching Bahmni
+  const [searchById, setSearchById] = useState('');
+  const [searchByName, setSearchByName] = useState('');
+  const [searchByAddress, setSearchByAddress] = useState('');
+  const [searchResults, setSearchResults] = useState(samplePatients);
+  const [noResultsMessage, setNoResultsMessage] = useState('');
 
   const t = {
-    title: isRTL ? 'المرضى' : 'Patients',
-    search: isRTL ? 'البحث عن مريض...' : 'Search patients...',
-    newPatient: isRTL ? 'مريض جديد' : 'New Patient',
-    patientId: isRTL ? 'رقم المريض' : 'Patient ID',
+    title: isRTL ? 'البحث عن مريض' : 'Patient Search',
+    searchById: isRTL ? 'رقم المريض' : 'Patient ID',
+    searchByName: isRTL ? 'الاسم' : 'Name',
+    searchByAddress: isRTL ? 'العنوان' : 'Address',
+    enterIdPlaceholder: isRTL ? 'أدخل رقم المريض' : 'Enter Patient ID',
+    enterNamePlaceholder: isRTL ? 'أدخل الاسم' : 'Enter Name',
+    enterAddressPlaceholder: isRTL ? 'أدخل العنوان' : 'Enter Address',
+    search: isRTL ? 'بحث' : 'Search',
+    newPatient: isRTL ? 'تسجيل مريض جديد' : 'Register New Patient',
+    patientId: isRTL ? 'رقم المريض' : 'ID',
     name: isRTL ? 'الاسم' : 'Name',
     gender: isRTL ? 'الجنس' : 'Gender',
     age: isRTL ? 'العمر' : 'Age',
-    phone: isRTL ? 'الهاتف' : 'Phone',
-    lastVisit: isRTL ? 'آخر زيارة' : 'Last Visit',
-    status: isRTL ? 'الحالة' : 'Status',
-    actions: isRTL ? 'الإجراءات' : 'Actions',
-    male: isRTL ? 'ذكر' : 'Male',
-    female: isRTL ? 'أنثى' : 'Female',
-    active: isRTL ? 'نشط' : 'Active',
-    inactive: isRTL ? 'غير نشط' : 'Inactive',
-    years: isRTL ? 'سنة' : 'years',
+    dob: isRTL ? 'تاريخ الميلاد' : 'DOB',
+    address: isRTL ? 'العنوان' : 'Address',
+    registrationDate: isRTL ? 'تاريخ التسجيل' : 'Registration Date',
+    male: isRTL ? 'ذ' : 'M',
+    female: isRTL ? 'أ' : 'F',
+    noResults: isRTL ? 'لا توجد نتائج للبحث' : 'No results found',
+    noMoreResults: isRTL ? 'لا توجد مزيد من النتائج' : 'No more results',
+    totalResults: isRTL ? 'النتائج' : 'Results',
     view: isRTL ? 'عرض' : 'View',
     edit: isRTL ? 'تعديل' : 'Edit',
-    noPatients: isRTL ? 'لا يوجد مرضى' : 'No patients found',
-    totalPatients: isRTL ? 'إجمالي المرضى' : 'Total Patients',
+    startVisit: isRTL ? 'بدء زيارة' : 'Start Visit',
+    notAssigned: isRTL ? 'غير مخصص' : 'Not Assigned',
   };
 
-  const filteredPatients = samplePatients.filter((patient) => {
-    const searchLower = searchQuery.toLowerCase();
-    return (
-      patient.id.toLowerCase().includes(searchLower) ||
-      patient.firstName.includes(searchQuery) ||
-      patient.lastName.includes(searchQuery) ||
-      patient.firstNameEn.toLowerCase().includes(searchLower) ||
-      patient.lastNameEn.toLowerCase().includes(searchLower) ||
-      patient.phone.includes(searchQuery)
+  // Search by ID (matching Bahmni searchById)
+  const handleSearchById = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!searchById.trim()) return;
+    
+    const results = samplePatients.filter(p => 
+      p.identifier.toLowerCase().includes(searchById.toLowerCase())
     );
-  });
+    
+    setSearchResults(results);
+    if (results.length === 0) {
+      setNoResultsMessage(t.noResults);
+    } else {
+      setNoResultsMessage('');
+    }
+  };
+
+  // Search by Name/Address (matching Bahmni searchPatients)
+  const handleSearchByName = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const results = samplePatients.filter(p => {
+      const fullName = `${p.givenName} ${p.middleName} ${p.familyName}`.toLowerCase();
+      const nameMatch = !searchByName || fullName.includes(searchByName.toLowerCase());
+      const addressMatch = !searchByAddress || 
+        p.cityVillage?.toLowerCase().includes(searchByAddress.toLowerCase()) ||
+        p.stateProvince?.toLowerCase().includes(searchByAddress.toLowerCase());
+      
+      return nameMatch && addressMatch;
+    });
+    
+    setSearchResults(results);
+    if (results.length === 0) {
+      setNoResultsMessage(t.noResults);
+    } else {
+      setNoResultsMessage('');
+    }
+  };
+
+  // Navigate to patient (matching Bahmni forPatient().doExtensionAction)
+  const handlePatientClick = (patient: typeof samplePatients[0]) => {
+    // In real app, this would navigate to patient dashboard
+    router.push(`/patients/${patient.uuid}`);
+  };
+
+  // Format date for display
+  const formatDate = (dateStr: string) => {
+    return new Date(dateStr).toLocaleDateString(isRTL ? 'ar-YE' : 'en-US');
+  };
 
   return (
     <>
@@ -120,153 +183,168 @@ export default function PatientsPage() {
       </Head>
 
       <div className="space-y-6">
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-primary-100 rounded-lg">
-              <Users size={24} className="text-primary-600" />
+        {/* Search Section (matching Bahmni search.html) */}
+        <Card>
+          <CardContent className="p-6">
+            <div className="flex flex-col lg:flex-row gap-6">
+              {/* Search by ID */}
+              <div className="flex-1">
+                <form onSubmit={handleSearchById} className="space-y-2">
+                  <label className="block text-sm font-semibold text-slate-700">
+                    {t.searchById}
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={searchById}
+                      onChange={(e) => setSearchById(e.target.value)}
+                      placeholder={t.enterIdPlaceholder}
+                      className={`flex-1 px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent ${
+                        isRTL ? 'text-right' : 'text-left'
+                      }`}
+                    />
+                    <Button type="submit" disabled={!searchById.trim()}>
+                      {t.search}
+                    </Button>
+                  </div>
+                </form>
+              </div>
+
+              {/* Divider */}
+              <div className="hidden lg:block w-px bg-slate-200" />
+
+              {/* Search by Name/Address */}
+              <div className="flex-[2]">
+                <form onSubmit={handleSearchByName} className="space-y-2">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-700 mb-1">
+                        {t.searchByName}
+                      </label>
+                      <input
+                        type="text"
+                        value={searchByName}
+                        onChange={(e) => setSearchByName(e.target.value)}
+                        placeholder={t.enterNamePlaceholder}
+                        className={`w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent ${
+                          isRTL ? 'text-right' : 'text-left'
+                        }`}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-700 mb-1">
+                        {t.searchByAddress}
+                      </label>
+                      <input
+                        type="text"
+                        value={searchByAddress}
+                        onChange={(e) => setSearchByAddress(e.target.value)}
+                        placeholder={t.enterAddressPlaceholder}
+                        className={`w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent ${
+                          isRTL ? 'text-right' : 'text-left'
+                        }`}
+                      />
+                    </div>
+                    <div className="flex items-end">
+                      <Button type="submit" className="w-full md:w-auto">
+                        <Search size={18} className={isRTL ? 'ml-2' : 'mr-2'} />
+                        {t.search}
+                      </Button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
-            <div>
-              <h1 className="text-2xl font-bold text-slate-800">{t.title}</h1>
-              <p className="text-sm text-slate-500">
-                {t.totalPatients}: {filteredPatients.length}
-              </p>
-            </div>
+          </CardContent>
+        </Card>
+
+        {/* No Results Message */}
+        {noResultsMessage && (
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+            <p className="text-yellow-800">{noResultsMessage}</p>
           </div>
+        )}
+
+        {/* Results Table (matching Bahmni search results) */}
+        {searchResults.length > 0 && (
+          <Card>
+            <CardContent className="p-0">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-slate-200 bg-slate-50">
+                      <th className={`px-4 py-3 text-sm font-semibold text-slate-700 ${isRTL ? 'text-right' : 'text-left'}`}>
+                        {t.patientId}
+                      </th>
+                      <th className={`px-4 py-3 text-sm font-semibold text-slate-700 ${isRTL ? 'text-right' : 'text-left'}`}>
+                        {t.name}
+                      </th>
+                      <th className={`px-4 py-3 text-sm font-semibold text-slate-700 ${isRTL ? 'text-right' : 'text-left'}`}>
+                        {t.gender}
+                      </th>
+                      <th className={`px-4 py-3 text-sm font-semibold text-slate-700 ${isRTL ? 'text-right' : 'text-left'}`}>
+                        {t.age}
+                      </th>
+                      <th className={`px-4 py-3 text-sm font-semibold text-slate-700 ${isRTL ? 'text-right' : 'text-left'}`}>
+                        {t.dob}
+                      </th>
+                      <th className={`px-4 py-3 text-sm font-semibold text-slate-700 ${isRTL ? 'text-right' : 'text-left'}`}>
+                        {t.address}
+                      </th>
+                      <th className={`px-4 py-3 text-sm font-semibold text-slate-700 ${isRTL ? 'text-right' : 'text-left'}`}>
+                        {t.registrationDate}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {searchResults.map((patient, index) => (
+                      <tr
+                        key={patient.uuid}
+                        onClick={() => handlePatientClick(patient)}
+                        className="border-b border-slate-100 hover:bg-primary-50 cursor-pointer transition-colors"
+                        tabIndex={9 + index}
+                      >
+                        <td className="px-4 py-3">
+                          <span className="text-primary-600 font-medium hover:underline">
+                            {patient.identifier || t.notAssigned}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-sm text-slate-800">
+                          {patient.givenName} {patient.middleName} {patient.familyName}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-slate-600">
+                          {patient.gender === 'M' ? t.male : t.female}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-slate-600">
+                          {patient.age}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-slate-600">
+                          {formatDate(patient.birthDate)}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-slate-600">
+                          {patient.cityVillage}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-slate-600">
+                          {formatDate(patient.dateCreated)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Register New Patient Button */}
+        <div className="flex justify-center">
           <Link href="/registration">
-            <Button>
-              <Plus size={18} className="mr-2" />
+            <Button size="lg">
+              <UserPlus size={20} className={isRTL ? 'ml-2' : 'mr-2'} />
               {t.newPatient}
             </Button>
           </Link>
         </div>
-
-        {/* Search */}
-        <Card>
-          <CardContent className="p-4">
-            <div className="relative">
-              <Search
-                size={20}
-                className={`absolute top-1/2 -translate-y-1/2 text-slate-400 ${
-                  isRTL ? 'right-3' : 'left-3'
-                }`}
-              />
-              <input
-                type="text"
-                placeholder={t.search}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className={`w-full py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent ${
-                  isRTL ? 'pr-10 pl-4' : 'pl-10 pr-4'
-                }`}
-              />
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Patients Table */}
-        <Card>
-          <CardContent className="p-0 overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="px-4 py-3 text-start text-sm font-semibold text-slate-600">
-                    {t.patientId}
-                  </th>
-                  <th className="px-4 py-3 text-start text-sm font-semibold text-slate-600">
-                    {t.name}
-                  </th>
-                  <th className="px-4 py-3 text-start text-sm font-semibold text-slate-600">
-                    {t.gender}
-                  </th>
-                  <th className="px-4 py-3 text-start text-sm font-semibold text-slate-600">
-                    {t.age}
-                  </th>
-                  <th className="px-4 py-3 text-start text-sm font-semibold text-slate-600">
-                    {t.phone}
-                  </th>
-                  <th className="px-4 py-3 text-start text-sm font-semibold text-slate-600">
-                    {t.lastVisit}
-                  </th>
-                  <th className="px-4 py-3 text-start text-sm font-semibold text-slate-600">
-                    {t.status}
-                  </th>
-                  <th className="px-4 py-3 text-start text-sm font-semibold text-slate-600">
-                    {t.actions}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredPatients.length === 0 ? (
-                  <tr>
-                    <td colSpan={8} className="px-4 py-8 text-center text-slate-500">
-                      {t.noPatients}
-                    </td>
-                  </tr>
-                ) : (
-                  filteredPatients.map((patient) => (
-                    <tr
-                      key={patient.id}
-                      className="border-b border-slate-100 hover:bg-slate-50 transition-colors"
-                    >
-                      <td className="px-4 py-3 text-sm font-medium text-primary-600">
-                        {patient.id}
-                      </td>
-                      <td className="px-4 py-3">
-                        <div>
-                          <p className="text-sm font-medium text-slate-800">
-                            {isRTL
-                              ? `${patient.firstName} ${patient.lastName}`
-                              : `${patient.firstNameEn} ${patient.lastNameEn}`}
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-4 py-3 text-sm text-slate-600">
-                        {patient.gender === 'male' ? t.male : t.female}
-                      </td>
-                      <td className="px-4 py-3 text-sm text-slate-600">
-                        {patient.age} {t.years}
-                      </td>
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-1 text-sm text-slate-600">
-                          <Phone size={14} />
-                          {patient.phone}
-                        </div>
-                      </td>
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-1 text-sm text-slate-600">
-                          <Calendar size={14} />
-                          {patient.lastVisit}
-                        </div>
-                      </td>
-                      <td className="px-4 py-3">
-                        <Badge variant={patient.status === 'active' ? 'success' : 'default'}>
-                          {patient.status === 'active' ? t.active : t.inactive}
-                        </Badge>
-                      </td>
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <button
-                            className="p-1.5 text-slate-500 hover:text-primary-600 hover:bg-primary-50 rounded"
-                            title={t.view}
-                          >
-                            <Eye size={16} />
-                          </button>
-                          <button
-                            className="p-1.5 text-slate-500 hover:text-primary-600 hover:bg-primary-50 rounded"
-                            title={t.edit}
-                          >
-                            <Edit size={16} />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
-          </CardContent>
-        </Card>
       </div>
     </>
   );
