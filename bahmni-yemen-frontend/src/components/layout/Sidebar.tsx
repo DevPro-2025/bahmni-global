@@ -22,6 +22,12 @@ import {
   FileText,
   Shield,
   Layers,
+  Scan,
+  Video,
+  Wifi,
+  Mic,
+  Lock,
+  LineChart,
 } from 'lucide-react';
 
 interface NavItem {
@@ -41,11 +47,17 @@ const navItems: NavItem[] = [
   { href: '/bedmanagement', labelAr: 'إدارة الأسرة', labelEn: 'Bed Management', icon: <BedDouble size={20} /> },
   { href: '/ot', labelAr: 'غرفة العمليات', labelEn: 'OT', icon: <Scissors size={20} /> },
   { href: '/laboratory', labelAr: 'المختبر', labelEn: 'Laboratory', icon: <FlaskConical size={20} /> },
+  { href: '/radiology', labelAr: 'الأشعة', labelEn: 'Radiology', icon: <Scan size={20} /> },
   { href: '/pharmacy', labelAr: 'الصيدلية', labelEn: 'Pharmacy', icon: <Pill size={20} /> },
   { href: '/billing', labelAr: 'الفوترة', labelEn: 'Billing', icon: <Receipt size={20} /> },
   { href: '/documents', labelAr: 'المستندات', labelEn: 'Documents', icon: <FileText size={20} /> },
+  { href: '/teleconsultation', labelAr: 'الطب عن بُعد', labelEn: 'Teleconsultation', icon: <Video size={20} /> },
   { href: '/reports', labelAr: 'التقارير', labelEn: 'Reports', icon: <BarChart3 size={20} /> },
+  { href: '/analytics', labelAr: 'التحليلات', labelEn: 'Analytics', icon: <LineChart size={20} /> },
   { href: '/programs', labelAr: 'البرامج', labelEn: 'Programs', icon: <Layers size={20} /> },
+  { href: '/offline', labelAr: 'غير متصل', labelEn: 'Offline', icon: <Wifi size={20} /> },
+  { href: '/voice', labelAr: 'الصوت', labelEn: 'Voice', icon: <Mic size={20} /> },
+  { href: '/security', labelAr: 'الأمان', labelEn: 'Security', icon: <Lock size={20} /> },
   { href: '/admin', labelAr: 'الإدارة', labelEn: 'Admin', icon: <Shield size={20} /> },
 ];
 
