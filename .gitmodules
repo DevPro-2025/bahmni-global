@@ -1,0 +1,3 @@
+[submodule "bahmni-frontend"]
+	path = bahmni-frontend
+	url = https://github.com/Bahmni/bahmni-frontend.git
