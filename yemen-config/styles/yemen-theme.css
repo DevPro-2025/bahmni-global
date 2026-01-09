@@ -5,7 +5,7 @@
  * It ONLY changes visual appearance - NO functionality changes.
  */
 
-@import url('yemen-variables.css');
+/* Note: Import yemen-variables.css before this file */
 
 /* ============================================
  * GLOBAL RESETS & BASE STYLES
@@ -251,7 +251,7 @@ button.remove {
 .btn-danger:hover,
 .button-danger:hover,
 button.delete:hover {
-  background-color: #dc2626 !important;
+  background-color: var(--yemen-error-dark) !important;
 }
 
 /* ============================================

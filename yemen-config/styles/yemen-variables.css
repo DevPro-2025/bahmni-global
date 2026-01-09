@@ -53,6 +53,7 @@
   --yemen-warning-light: #fef3c7;
   --yemen-error: #ef4444;
   --yemen-error-light: #fee2e2;
+  --yemen-error-dark: #dc2626;
   --yemen-info: #3b82f6;
   --yemen-info-light: #dbeafe;
   
@@ -158,4 +159,5 @@
   --yemen-sidebar-collapsed-width: 64px;
   --yemen-header-height: 64px;
   --yemen-content-max-width: 1400px;
+  --yemen-table-min-width: 600px;
 }
