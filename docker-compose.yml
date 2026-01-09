@@ -1,0 +1,173 @@
+# Yemen Health System - Docker Compose Configuration
+# This file configures the complete Yemen Health System stack
+
+version: "3.8"
+
+services:
+  # Yemen Health System Frontend
+  yemen-frontend:
+    build:
+      context: ./bahmni-yemen-frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_OPENMRS_URL: ${OPENMRS_URL:-http://openmrs:8080/openmrs}
+        NEXT_PUBLIC_BAHMNI_URL: ${BAHMNI_URL:-http://bahmni-web:8080/bahmni}
+    image: yemen-health-frontend:latest
+    container_name: yemen-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_OPENMRS_URL=${OPENMRS_URL:-/openmrs}
+      - NEXT_PUBLIC_BAHMNI_URL=${BAHMNI_URL:-/bahmni}
+    networks:
+      - yemen-health-network
+    depends_on:
+      - openmrs
+      - bahmni-web
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # OpenMRS Backend
+  openmrs:
+    image: bahmni/openmrs:latest
+    container_name: openmrs
+    restart: unless-stopped
+    environment:
+      - OMRS_DB_HOSTNAME=${DB_HOST:-mysql}
+      - OMRS_DB_NAME=${OPENMRS_DB_NAME:-openmrs}
+      - OMRS_DB_USERNAME=${DB_USERNAME:-openmrs}
+      - OMRS_DB_PASSWORD=${DB_PASSWORD:-openmrs}
+      - OMRS_ADMIN_PASSWORD=${ADMIN_PASSWORD:-Admin123}
+    volumes:
+      - openmrs-data:/openmrs/data
+      - ./yemen-config:/etc/bahmni-config
+    networks:
+      - yemen-health-network
+    depends_on:
+      - mysql
+
+  # Bahmni Web (Apache Proxy)
+  bahmni-web:
+    image: bahmni/bahmni-web:latest
+    container_name: bahmni-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - OPENMRS_HOST=openmrs
+      - OPENMRS_PORT=8080
+      - ODOO_HOST=odoo
+      - ODOO_PORT=8069
+    volumes:
+      - ./bahmni-yemen-frontend/.next/static:/var/www/yemen-frontend/static:ro
+      - ./nginx/yemen-health.conf:/etc/nginx/conf.d/yemen-health.conf:ro
+    networks:
+      - yemen-health-network
+    depends_on:
+      - openmrs
+
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
+      - MYSQL_DATABASE=${OPENMRS_DB_NAME:-openmrs}
+      - MYSQL_USER=${DB_USERNAME:-openmrs}
+      - MYSQL_PASSWORD=${DB_PASSWORD:-openmrs}
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - yemen-health-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # OpenELIS (Laboratory)
+  openelis:
+    image: bahmni/openelis:latest
+    container_name: openelis
+    restart: unless-stopped
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=${DB_USERNAME:-openmrs}
+      - DB_PASSWORD=${DB_PASSWORD:-openmrs}
+    volumes:
+      - openelis-data:/var/lib/OpenELIS-Global
+    networks:
+      - yemen-health-network
+    depends_on:
+      - mysql
+
+  # Odoo (ERP - Billing/Pharmacy)
+  odoo:
+    image: bahmni/odoo:latest
+    container_name: odoo
+    restart: unless-stopped
+    ports:
+      - "8069:8069"
+    environment:
+      - HOST=postgres
+      - USER=${ODOO_DB_USER:-odoo}
+      - PASSWORD=${ODOO_DB_PASSWORD:-odoo}
+    volumes:
+      - odoo-data:/var/lib/odoo
+      - ./odoo-addons:/mnt/extra-addons
+    networks:
+      - yemen-health-network
+    depends_on:
+      - postgres
+
+  # PostgreSQL (for Odoo)
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=${ODOO_DB_USER:-odoo}
+      - POSTGRES_PASSWORD=${ODOO_DB_PASSWORD:-odoo}
+      - POSTGRES_DB=postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - yemen-health-network
+
+  # Bahmni Reports
+  bahmni-reports:
+    image: bahmni/reports:latest
+    container_name: bahmni-reports
+    restart: unless-stopped
+    environment:
+      - OPENMRS_HOST=openmrs
+      - OPENMRS_PORT=8080
+      - DB_HOST=mysql
+      - DB_USERNAME=${DB_USERNAME:-openmrs}
+      - DB_PASSWORD=${DB_PASSWORD:-openmrs}
+    volumes:
+      - ./reports-config:/etc/bahmni-reports
+    networks:
+      - yemen-health-network
+    depends_on:
+      - openmrs
+      - mysql
+
+networks:
+  yemen-health-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+  openmrs-data:
+  openelis-data:
+  odoo-data:
+  postgres-data:

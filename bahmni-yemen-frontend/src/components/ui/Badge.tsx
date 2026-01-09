@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-type BadgeVariant = 'default' | 'success' | 'warning' | 'error' | 'info';
+export type BadgeVariant = 'default' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: BadgeVariant;
@@ -12,6 +12,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   ({ className, variant = 'default', children, ...props }, ref) => {
     const variants = {
       default: 'bg-slate-100 text-slate-800',
+      secondary: 'bg-slate-200 text-slate-600',
       success: 'bg-green-100 text-green-800',
       warning: 'bg-yellow-100 text-yellow-800',
       error: 'bg-red-100 text-red-800',
