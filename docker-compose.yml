@@ -1,0 +1,242 @@
+# ============================================================================
+# Yemen Health System - Docker Compose Configuration
+# ============================================================================
+# 
+# هذا الملف يُشغّل نظام اليمن الصحي مع الـ Theme Overlay
+# This file runs Yemen Health System with Theme Overlay
+#
+# ⚠️  المنافذ معدّلة للتشغيل بجانب مشروعك الأساسي
+#     Ports are modified to run alongside your main project
+#
+# 🔧 للتشغيل / To Run:
+#     docker-compose up -d
+#
+# 🛑 للإيقاف / To Stop:
+#     docker-compose down
+#
+# 🌐 الوصول / Access URLs:
+#     - Bahmni Web:    http://localhost:8090
+#     - OpenMRS:       http://localhost:8091/openmrs
+#     - Odoo:          http://localhost:8092
+#     - Prototype UI:  http://localhost:3001
+#
+# ============================================================================
+
+version: "3.8"
+
+services:
+  # ==========================================================================
+  # Bahmni Apps - Main Application with Yemen Theme Overlay
+  # ==========================================================================
+  bahmniapps:
+    image: bahmni/bahmni-web:latest
+    container_name: yemen-bahmniapps
+    restart: unless-stopped
+    ports:
+      - "8090:80"       # Main Bahmni UI (changed from 80)
+      - "8443:443"      # HTTPS (changed from 443)
+    environment:
+      - OPENMRS_HOST=yemen-openmrs
+      - OPENMRS_PORT=8080
+      - ODOO_HOST=yemen-odoo
+      - ODOO_PORT=8069
+    volumes:
+      # ===== Yemen Theme Overlay (CSS/Styling) =====
+      - ./yemen-config/styles:/var/www/bahmniapps/styles/yemen:ro
+      - ./yemen-config/i18n:/var/www/bahmniapps/i18n/custom:ro
+      - ./yemen-config/branding:/var/www/bahmniapps/branding/custom:ro
+      # ===== Custom Nginx Config =====
+      - ./nginx/yemen-health.conf:/etc/nginx/conf.d/yemen-health.conf:ro
+    networks:
+      - yemen-health-network
+    depends_on:
+      - openmrs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ==========================================================================
+  # OpenMRS Backend
+  # ==========================================================================
+  openmrs:
+    image: bahmni/openmrs:latest
+    container_name: yemen-openmrs
+    restart: unless-stopped
+    ports:
+      - "8091:8080"     # OpenMRS API (changed from 8080)
+    environment:
+      - OMRS_DB_HOSTNAME=yemen-mysql
+      - OMRS_DB_NAME=${OPENMRS_DB_NAME:-openmrs}
+      - OMRS_DB_USERNAME=${DB_USERNAME:-openmrs}
+      - OMRS_DB_PASSWORD=${DB_PASSWORD:-openmrs}
+      - OMRS_ADMIN_PASSWORD=${ADMIN_PASSWORD:-Admin123}
+    volumes:
+      - yemen-openmrs-data:/openmrs/data
+      # ===== Yemen Config =====
+      - ./yemen-config:/etc/bahmni-config:ro
+    networks:
+      - yemen-health-network
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/openmrs"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+
+  # ==========================================================================
+  # MySQL Database
+  # ==========================================================================
+  mysql:
+    image: mysql:8.0
+    container_name: yemen-mysql
+    restart: unless-stopped
+    ports:
+      - "3307:3306"     # MySQL (changed from 3306)
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
+      - MYSQL_DATABASE=${OPENMRS_DB_NAME:-openmrs}
+      - MYSQL_USER=${DB_USERNAME:-openmrs}
+      - MYSQL_PASSWORD=${DB_PASSWORD:-openmrs}
+    volumes:
+      - yemen-mysql-data:/var/lib/mysql
+    networks:
+      - yemen-health-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ==========================================================================
+  # OpenELIS (Laboratory)
+  # ==========================================================================
+  openelis:
+    image: bahmni/openelis:latest
+    container_name: yemen-openelis
+    restart: unless-stopped
+    ports:
+      - "8093:8080"     # OpenELIS (changed port)
+    environment:
+      - DB_HOST=yemen-mysql
+      - DB_USER=${DB_USERNAME:-openmrs}
+      - DB_PASSWORD=${DB_PASSWORD:-openmrs}
+    volumes:
+      - yemen-openelis-data:/var/lib/OpenELIS-Global
+    networks:
+      - yemen-health-network
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  # ==========================================================================
+  # Odoo (ERP - Billing/Pharmacy)
+  # ==========================================================================
+  odoo:
+    image: bahmni/odoo:latest
+    container_name: yemen-odoo
+    restart: unless-stopped
+    ports:
+      - "8092:8069"     # Odoo (changed from 8069)
+    environment:
+      - HOST=yemen-postgres
+      - USER=${ODOO_DB_USER:-odoo}
+      - PASSWORD=${ODOO_DB_PASSWORD:-odoo}
+    volumes:
+      - yemen-odoo-data:/var/lib/odoo
+    networks:
+      - yemen-health-network
+    depends_on:
+      - postgres
+
+  # ==========================================================================
+  # PostgreSQL (for Odoo)
+  # ==========================================================================
+  postgres:
+    image: postgres:13
+    container_name: yemen-postgres
+    restart: unless-stopped
+    ports:
+      - "5433:5432"     # PostgreSQL (changed from 5432)
+    environment:
+      - POSTGRES_USER=${ODOO_DB_USER:-odoo}
+      - POSTGRES_PASSWORD=${ODOO_DB_PASSWORD:-odoo}
+      - POSTGRES_DB=postgres
+    volumes:
+      - yemen-postgres-data:/var/lib/postgresql/data
+    networks:
+      - yemen-health-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ==========================================================================
+  # Bahmni Reports
+  # ==========================================================================
+  bahmni-reports:
+    image: bahmni/reports:latest
+    container_name: yemen-bahmni-reports
+    restart: unless-stopped
+    ports:
+      - "8094:8080"     # Reports (new port)
+    environment:
+      - OPENMRS_HOST=yemen-openmrs
+      - OPENMRS_PORT=8080
+      - DB_HOST=yemen-mysql
+      - DB_USERNAME=${DB_USERNAME:-openmrs}
+      - DB_PASSWORD=${DB_PASSWORD:-openmrs}
+    networks:
+      - yemen-health-network
+    depends_on:
+      - openmrs
+      - mysql
+
+  # ==========================================================================
+  # Yemen Frontend Prototype (UI Reference Only - NOT Production)
+  # ==========================================================================
+  yemen-frontend:
+    build:
+      context: ./bahmni-yemen-frontend
+      dockerfile: Dockerfile
+    image: yemen-health-frontend:latest
+    container_name: yemen-frontend-prototype
+    restart: unless-stopped
+    ports:
+      - "3001:3000"     # Prototype UI (changed from 3000)
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_OPENMRS_URL=http://localhost:8091/openmrs
+      - NEXT_PUBLIC_BAHMNI_URL=http://localhost:8090/bahmni
+    networks:
+      - yemen-health-network
+    profiles:
+      - prototype       # Only starts with: docker-compose --profile prototype up
+
+# ============================================================================
+# Networks
+# ============================================================================
+networks:
+  yemen-health-network:
+    driver: bridge
+    name: yemen-health-network
+
+# ============================================================================
+# Volumes (Separate from main project)
+# ============================================================================
+volumes:
+  yemen-mysql-data:
+    name: yemen-mysql-data
+  yemen-openmrs-data:
+    name: yemen-openmrs-data
+  yemen-openelis-data:
+    name: yemen-openelis-data
+  yemen-odoo-data:
+    name: yemen-odoo-data
+  yemen-postgres-data:
+    name: yemen-postgres-data

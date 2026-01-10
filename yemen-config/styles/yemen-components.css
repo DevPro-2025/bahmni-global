@@ -1,0 +1,298 @@
+/**
+ * Yemen Health System - Component Overrides
+ * Specific Bahmni component style overrides.
+ */
+
+/* Patient header banner */
+.patient-header,
+.patient-banner,
+.patient-context {
+  background: linear-gradient(135deg, var(--yemen-primary-600) 0%, var(--yemen-primary-700) 100%) !important;
+  color: white !important;
+  padding: var(--yemen-space-4) var(--yemen-space-6) !important;
+  border-radius: var(--yemen-radius-lg) !important;
+  margin-bottom: var(--yemen-space-6) !important;
+}
+
+.patient-header .patient-name,
+.patient-banner .patient-name {
+  font-size: var(--yemen-text-xl) !important;
+  font-weight: var(--yemen-font-semibold) !important;
+  color: white !important;
+}
+
+.patient-header .patient-id,
+.patient-banner .patient-id {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  padding: var(--yemen-space-1) var(--yemen-space-3) !important;
+  border-radius: var(--yemen-radius-full) !important;
+  font-size: var(--yemen-text-sm) !important;
+}
+
+/* Registration form */
+.registration-form,
+.patient-registration {
+  background-color: white !important;
+  border-radius: var(--yemen-radius-xl) !important;
+  padding: var(--yemen-space-6) !important;
+}
+
+.registration-form .section-title,
+.patient-registration .section-title {
+  font-size: var(--yemen-text-lg) !important;
+  font-weight: var(--yemen-font-semibold) !important;
+  color: var(--yemen-primary-700) !important;
+  border-bottom: 2px solid var(--yemen-primary-100) !important;
+  padding-bottom: var(--yemen-space-3) !important;
+  margin-bottom: var(--yemen-space-4) !important;
+}
+
+/* Photo capture */
+.patient-photo,
+.photo-capture {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: var(--yemen-radius-lg) !important;
+  border: 2px dashed var(--yemen-neutral-300) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: var(--yemen-neutral-50) !important;
+  cursor: pointer !important;
+  transition: all var(--yemen-transition-fast) !important;
+}
+
+.patient-photo:hover,
+.photo-capture:hover {
+  border-color: var(--yemen-primary-400) !important;
+  background-color: var(--yemen-primary-50) !important;
+}
+
+/* Vitals section */
+.vitals-section,
+.vitals-form {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  gap: var(--yemen-space-4) !important;
+}
+
+.vital-card,
+.vital-input-group {
+  background-color: var(--yemen-neutral-50) !important;
+  border-radius: var(--yemen-radius-lg) !important;
+  padding: var(--yemen-space-4) !important;
+  border: 1px solid var(--yemen-neutral-200) !important;
+}
+
+/* Diagnosis */
+.diagnosis-section,
+.diagnoses-list {
+  border: 1px solid var(--yemen-neutral-200) !important;
+  border-radius: var(--yemen-radius-lg) !important;
+  overflow: hidden !important;
+}
+
+.diagnosis-item {
+  display: flex !important;
+  align-items: center !important;
+  padding: var(--yemen-space-3) var(--yemen-space-4) !important;
+  border-bottom: 1px solid var(--yemen-neutral-200) !important;
+  gap: var(--yemen-space-3) !important;
+}
+
+.diagnosis-item:last-child {
+  border-bottom: none !important;
+}
+
+.diagnosis-item .diagnosis-type.confirmed {
+  background-color: var(--yemen-success-light) !important;
+  color: var(--yemen-secondary-700) !important;
+}
+
+.diagnosis-item .diagnosis-type.provisional {
+  background-color: var(--yemen-warning-light) !important;
+  color: #b45309 !important;
+}
+
+/* Appointments */
+.appointment-card {
+  display: flex !important;
+  align-items: center !important;
+  padding: var(--yemen-space-4) !important;
+  border: 1px solid var(--yemen-neutral-200) !important;
+  border-radius: var(--yemen-radius-lg) !important;
+  margin-bottom: var(--yemen-space-3) !important;
+  transition: all var(--yemen-transition-fast) !important;
+}
+
+.appointment-card:hover {
+  box-shadow: var(--yemen-shadow-md) !important;
+  border-color: var(--yemen-primary-200) !important;
+}
+
+/* Lab orders */
+.lab-order-card {
+  border: 1px solid var(--yemen-neutral-200) !important;
+  border-radius: var(--yemen-radius-lg) !important;
+  padding: var(--yemen-space-4) !important;
+  margin-bottom: var(--yemen-space-3) !important;
+}
+
+.lab-order-card .urgency-stat {
+  background-color: var(--yemen-error-light) !important;
+  color: #b91c1c !important;
+  font-weight: var(--yemen-font-semibold) !important;
+}
+
+.lab-order-card .urgency-routine {
+  background-color: var(--yemen-info-light) !important;
+  color: var(--yemen-primary-700) !important;
+}
+
+/* Billing */
+.bill-total,
+.invoice-total {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: var(--yemen-space-4) !important;
+  background-color: var(--yemen-neutral-50) !important;
+  border-radius: var(--yemen-radius-lg) !important;
+  font-size: var(--yemen-text-xl) !important;
+  font-weight: var(--yemen-font-bold) !important;
+}
+
+.bill-total .amount,
+.invoice-total .amount {
+  color: var(--yemen-primary-700) !important;
+}
+
+/* Currency - Yemeni Rial */
+.currency-yer::before {
+  content: "ر.ي " !important;
+}
+
+/* Ward cards */
+.ward-summary,
+.adt-dashboard {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: var(--yemen-space-4) !important;
+  margin-bottom: var(--yemen-space-6) !important;
+}
+
+.ward-card {
+  background-color: white !important;
+  border-radius: var(--yemen-radius-lg) !important;
+  padding: var(--yemen-space-4) !important;
+  border: 1px solid var(--yemen-neutral-200) !important;
+}
+
+.ward-card .occupancy-bar {
+  height: 8px !important;
+  background-color: var(--yemen-neutral-200) !important;
+  border-radius: var(--yemen-radius-full) !important;
+  overflow: hidden !important;
+  margin: var(--yemen-space-2) 0 !important;
+}
+
+.ward-card .occupancy-fill {
+  height: 100% !important;
+  background-color: var(--yemen-primary-500) !important;
+  border-radius: var(--yemen-radius-full) !important;
+}
+
+.ward-card .occupancy-fill.high {
+  background-color: var(--yemen-error) !important;
+}
+
+.ward-card .occupancy-fill.medium {
+  background-color: var(--yemen-warning) !important;
+}
+
+/* Bed management */
+.bed-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)) !important;
+  gap: var(--yemen-space-2) !important;
+}
+
+.bed-cell {
+  aspect-ratio: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: var(--yemen-radius-md) !important;
+  font-size: var(--yemen-text-sm) !important;
+  font-weight: var(--yemen-font-medium) !important;
+  cursor: pointer !important;
+  transition: all var(--yemen-transition-fast) !important;
+}
+
+.bed-cell.available {
+  background-color: var(--yemen-success-light) !important;
+  border: 1px solid var(--yemen-success) !important;
+  color: var(--yemen-secondary-700) !important;
+}
+
+.bed-cell.occupied {
+  background-color: var(--yemen-error-light) !important;
+  border: 1px solid var(--yemen-error) !important;
+  color: #b91c1c !important;
+}
+
+.bed-cell.reserved {
+  background-color: var(--yemen-warning-light) !important;
+  border: 1px solid var(--yemen-warning) !important;
+  color: #b45309 !important;
+}
+
+.bed-cell:hover {
+  transform: scale(1.05) !important;
+  box-shadow: var(--yemen-shadow-md) !important;
+}
+
+/* Settings */
+.toggle-switch {
+  position: relative !important;
+  width: 48px !important;
+  height: 24px !important;
+  background-color: var(--yemen-neutral-300) !important;
+  border-radius: var(--yemen-radius-full) !important;
+  cursor: pointer !important;
+  transition: background-color var(--yemen-transition-fast) !important;
+}
+
+.toggle-switch.active {
+  background-color: var(--yemen-primary-500) !important;
+}
+
+.toggle-switch::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  width: 20px !important;
+  height: 20px !important;
+  background-color: white !important;
+  border-radius: var(--yemen-radius-full) !important;
+  transition: transform var(--yemen-transition-fast) !important;
+}
+
+.toggle-switch.active::after {
+  transform: translateX(24px) !important;
+}
+
+/* Empty states */
+.empty-state,
+.no-data {
+  text-align: center !important;
+  padding: var(--yemen-space-12) var(--yemen-space-6) !important;
+  color: var(--yemen-neutral-500) !important;
+}
+
+.empty-state .empty-icon {
+  font-size: 64px !important;
+  margin-bottom: var(--yemen-space-4) !important;
+  opacity: 0.5 !important;
+}

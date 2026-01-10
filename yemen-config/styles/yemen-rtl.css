@@ -1,0 +1,144 @@
+/**
+ * Yemen Health System - RTL (Right-to-Left) Styles
+ * Arabic locale specific styles for proper RTL layout.
+ */
+
+html[dir="rtl"],
+html[lang="ar"],
+.locale-ar,
+.rtl {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Sidebar position */
+html[dir="rtl"] .side-bar,
+html[dir="rtl"] .sidebar,
+html[lang="ar"] .side-bar,
+html[lang="ar"] .sidebar {
+  left: auto !important;
+  right: 0 !important;
+  border-right: none !important;
+  border-left: 1px solid var(--yemen-neutral-200) !important;
+}
+
+/* Main content margin */
+html[dir="rtl"] .main-content,
+html[dir="rtl"] .content-area,
+html[lang="ar"] .main-content,
+html[lang="ar"] .content-area {
+  margin-left: 0 !important;
+  margin-right: var(--yemen-sidebar-width) !important;
+}
+
+/* Typography */
+html[dir="rtl"] body,
+html[lang="ar"] body,
+.rtl body,
+.locale-ar body {
+  font-family: var(--yemen-font-arabic) !important;
+}
+
+/* Form elements */
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select,
+html[lang="ar"] input,
+html[lang="ar"] textarea,
+html[lang="ar"] select {
+  text-align: right !important;
+}
+
+html[dir="rtl"] label,
+html[lang="ar"] label {
+  text-align: right !important;
+}
+
+/* Tables */
+html[dir="rtl"] table th,
+html[dir="rtl"] table td,
+html[lang="ar"] table th,
+html[lang="ar"] table td {
+  text-align: right !important;
+}
+
+/* Alerts */
+html[dir="rtl"] .alert,
+html[dir="rtl"] .notification,
+html[lang="ar"] .alert,
+html[lang="ar"] .notification {
+  border-left: none !important;
+  border-right: 4px solid !important;
+  flex-direction: row-reverse !important;
+}
+
+/* Modal */
+html[dir="rtl"] .modal-footer,
+html[dir="rtl"] .dialog-footer,
+html[lang="ar"] .modal-footer,
+html[lang="ar"] .dialog-footer {
+  flex-direction: row-reverse !important;
+  justify-content: flex-start !important;
+}
+
+/* Navigation */
+html[dir="rtl"] .nav-link,
+html[dir="rtl"] .sidebar-menu li a,
+html[lang="ar"] .nav-link,
+html[lang="ar"] .sidebar-menu li a {
+  flex-direction: row-reverse !important;
+}
+
+/* Breadcrumbs */
+html[dir="rtl"] .breadcrumb,
+html[lang="ar"] .breadcrumb {
+  flex-direction: row-reverse !important;
+}
+
+/* Pagination */
+html[dir="rtl"] .pagination,
+html[lang="ar"] .pagination {
+  flex-direction: row-reverse !important;
+}
+
+/* Lists */
+html[dir="rtl"] ul,
+html[dir="rtl"] ol,
+html[lang="ar"] ul,
+html[lang="ar"] ol {
+  padding-left: 0 !important;
+  padding-right: var(--yemen-space-6) !important;
+}
+
+/* Icons that need flipping */
+html[dir="rtl"] .icon-arrow-left,
+html[dir="rtl"] .fa-arrow-left,
+html[dir="rtl"] .icon-chevron-left,
+html[dir="rtl"] .fa-chevron-left,
+html[lang="ar"] .icon-arrow-left,
+html[lang="ar"] .fa-arrow-left {
+  transform: scaleX(-1) !important;
+}
+
+html[dir="rtl"] .icon-arrow-right,
+html[dir="rtl"] .fa-arrow-right,
+html[dir="rtl"] .icon-chevron-right,
+html[dir="rtl"] .fa-chevron-right,
+html[lang="ar"] .icon-arrow-right,
+html[lang="ar"] .fa-arrow-right {
+  transform: scaleX(-1) !important;
+}
+
+/* Bahmni specific */
+html[dir="rtl"] .patient-banner,
+html[lang="ar"] .patient-banner {
+  flex-direction: row-reverse !important;
+}
+
+html[dir="rtl"] .timeline,
+html[lang="ar"] .timeline {
+  border-left: none !important;
+  border-right: 2px solid var(--yemen-neutral-200) !important;
+  padding-left: 0 !important;
+  padding-right: var(--yemen-space-6) !important;
+}

@@ -1,0 +1,92 @@
+{
+  "branding": {
+    "name": {
+      "en": "Yemen Health System",
+      "ar": "النظام الصحي اليمني"
+    },
+    "shortName": {
+      "en": "Yemen Health",
+      "ar": "اليمن الصحي"
+    },
+    "tagline": {
+      "en": "Modern Hospital Information Management System",
+      "ar": "نظام إدارة معلومات المستشفيات الحديث"
+    },
+    "logo": {
+      "text": "YH",
+      "icon": "logo.svg"
+    }
+  },
+  "theme": {
+    "colors": {
+      "primary": "#2563eb",
+      "primaryLight": "#3b82f6",
+      "primaryDark": "#1d4ed8",
+      "secondary": "#22c55e",
+      "accent": "#f59e0b",
+      "background": "#f9fafb",
+      "surface": "#ffffff",
+      "text": "#1f2937",
+      "textLight": "#6b7280",
+      "border": "#e5e7eb",
+      "success": "#22c55e",
+      "warning": "#f59e0b",
+      "error": "#ef4444",
+      "info": "#3b82f6"
+    },
+    "typography": {
+      "fontFamily": {
+        "arabic": "'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif",
+        "english": "'Inter', 'Segoe UI', Tahoma, sans-serif"
+      }
+    },
+    "borderRadius": {
+      "small": "4px",
+      "medium": "8px",
+      "large": "12px"
+    }
+  },
+  "localization": {
+    "defaultLocale": "ar",
+    "supportedLocales": ["ar", "en"],
+    "rtlLocales": ["ar"],
+    "country": {
+      "code": "YE",
+      "name": {
+        "en": "Yemen",
+        "ar": "اليمن"
+      }
+    },
+    "currency": {
+      "code": "YER",
+      "name": {
+        "en": "Yemeni Rial",
+        "ar": "ريال يمني"
+      },
+      "symbol": "ر.ي",
+      "position": "after",
+      "decimalPlaces": 0
+    },
+    "dateFormat": {
+      "short": "yyyy/MM/dd",
+      "long": "dd MMMM yyyy",
+      "time": "HH:mm"
+    }
+  },
+  "replaceText": [
+    {
+      "find": "Bahmni",
+      "replace": {
+        "en": "Yemen Health System",
+        "ar": "النظام الصحي اليمني"
+      }
+    },
+    {
+      "find": "OpenMRS",
+      "replace": {
+        "en": "Yemen Health System",
+        "ar": "النظام الصحي اليمني"
+      }
+    }
+  ]
+}
