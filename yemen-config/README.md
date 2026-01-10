@@ -1,5 +1,6 @@
 # Yemen Health System - Theme Overlay Configuration
 
+هذا التكوين يوفر إعادة تصميم احترافية لواجهة Bahmni كـ Theme/Skin Overlay
 This configuration provides a professional UI/UX redesign for Bahmni as a Theme/Skin overlay.
 
 ## 📋 Overview
@@ -11,6 +12,29 @@ This is **NOT** a replacement frontend. It's a CSS/Styling overlay that:
 - ✅ Removes Bahmni branding → "النظام الصحي اليمني" / "Yemen Health System"
 - ✅ Supports Arabic (RTL) and English (LTR) only
 - ✅ Localizes for Yemen (governorates, currency)
+
+## 🚀 Quick Start - التشغيل السريع
+
+### للاختبار المحلي (Windows + Docker Desktop)
+
+```cmd
+cd C:\Users\Al\Desktop\bahmni-test
+docker-compose up -d
+```
+
+**روابط الوصول / Access URLs:**
+| Service | URL | Description |
+|---------|-----|-------------|
+| Bahmni Web | http://localhost:8090 | الواجهة الرئيسية |
+| OpenMRS | http://localhost:8091/openmrs | Backend API |
+| Odoo | http://localhost:8092 | الفوترة والصيدلية |
+| OpenELIS | http://localhost:8093 | المختبر |
+| Reports | http://localhost:8094 | التقارير |
+
+### للتحقق من الـ Theme:
+1. افتح http://localhost:8090
+2. يجب أن ترى الألوان والتصميم الجديد
+3. جرب تبديل اللغة للعربية لاختبار RTL
 
 ## 🎯 What This Does
 
